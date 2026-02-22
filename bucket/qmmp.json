@@ -1,0 +1,37 @@
+{
+    "version": "2.3.1",
+    "description": "Qmmp (Qt-based Multimedia Player) is an audio-player whose user interface is similar to winamp or xmms.",
+    "homepage": "https://qmmp.ylsoftware.com/",
+    "license": "GPL-2.0-only",
+    "architecture": {
+        "32bit": {
+            "url": "https://qmmp.ylsoftware.com/files/windows/2.3/qmmp-2.3.1-win32.exe#/dl.7z",
+            "hash": "144f0a122efb3115181c8eb5117872b380517c93de3f38eb5791dd0ee8932982",
+            "extract_dir": "qmmp-2.3.1"
+        }
+    },
+    "bin": "qmmp.exe",
+    "shortcuts": [
+        [
+            "qmmp.exe",
+            "Qmmp"
+        ]
+    ],
+    "pre_install": "if (Test-Path \"$dir\\.qmmp\") { $bak = Join-Path $env:TEMP 'qmmp_portable_backup'; Remove-Item $bak -Recurse -Force -ErrorAction SilentlyContinue; Rename-Item \"$dir\\.qmmp\" $bak -Force -ErrorAction SilentlyContinue }; if (Test-Path \"$dir\\qmmp_portable.txt\") { $bak2 = Join-Path $env:TEMP 'qmmp_portable_txt_backup'; Remove-Item $bak2 -Recurse -Force -ErrorAction SilentlyContinue; Move-Item \"$dir\\qmmp_portable.txt\" $bak2 -Force -ErrorAction SilentlyContinue }; $installer = Get-ChildItem -Path $dir -Filter 'qmmp-*-win32.exe' | Select-Object -First 1; if ($installer) { & 7z x $installer.FullName -o\"$dir\" -y }; $exdir = Get-ChildItem $dir -Directory | Where-Object Name -like 'qmmp*' | Select-Object -First 1; if ($exdir) { Get-ChildItem $exdir.FullName -Force | Move-Item -Destination $dir -Force; Remove-Item $exdir.FullName -Recurse -Force -ErrorAction SilentlyContinue }; if (Test-Path $bak) { Move-Item $bak \"$dir\\.qmmp\" -Force }; if (Test-Path $bak2) { Move-Item $bak2 \"$dir\\qmmp_portable.txt\" -Force }",
+    "persist": [
+        ".qmmp"
+    ],
+    "checkver": {
+        "url": "https://qmmp.ylsoftware.com/downloads.php",
+        "regex": "qmmp-([\\d.]+)-win32.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "32bit": {
+                "url": "https://qmmp.ylsoftware.com/files/windows/$majorVersion.$minorVersion/qmmp-$version-win32.exe#/dl.7z",
+                "extract_dir": "qmmp-$version"
+            }
+        }
+    },
+    "notes": "使用 https 下载 Windows (win32) 自解压安装器并将其解压为 portable 目录；保留 .qmmp 配置。请确认包内第三方二进制的许可以确保分发合规。"
+}

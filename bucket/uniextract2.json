@@ -1,0 +1,32 @@
+{
+    "version": "2.0.0-rc.3",
+    "description": "Universal Extractor. Decompress and extract files from any type of archive or installer.",
+    "homepage": "https://github.com/Bioruebe/UniExtract2",
+    "license": "GPL-2.0-only",
+    "architecture": {
+        "32bit": {
+            "url": "https://github.com/Bioruebe/UniExtract2/releases/download/v2.0.0-rc.3/UniExtractRC3.zip#/dl.7z",
+            "hash": "03170680b80f2afdf824f4d700c11b8e2dac805a4d9bd3d24f53e43bd7131c3a",
+            "extract_dir": "UniExtract"
+        }
+    },
+    "bin": "UniExtract.exe",
+    "shortcuts": [
+        [
+            "UniExtract.exe",
+            "Universal Extractor"
+        ]
+    ],
+    "persist": [
+        "log",
+        "UniExtract.ini"
+    ],
+    "checkver": {
+        "url": "https://repology.org/project/uniextract2/information",
+        "regex": "download/v([\\w.-]+)/(?<filename>\\w+\\.zip)"
+    },
+    "autoupdate": {
+        "url": "https://github.com/Bioruebe/UniExtract2/releases/download/v$version/$matchFilename"
+    },
+    "notes": "Portable by default; includes many third-party helper binaries—verify third-party licenses before redistribution."
+}

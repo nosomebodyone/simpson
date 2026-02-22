@@ -1,0 +1,37 @@
+{
+    "version": "2.1.0",
+    "description": "mpv.net-DW 是 mpv.net 的定制版本，集成了视频滤镜、着色器和便携配置。",
+    "homepage": "https://github.com/diana7127/mpv.net-DW",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/diana7127/mpv.net-DW/releases/download/v2.1.0/mpv.net-DW_v2.1.0_Setup.exe#/dl.7z",
+            "hash": "55ed0da1730e7d7c1cf131035e68999ab378fbd7de34e96f326e2d6f0602ef29",
+            "extract_dir": "mpv.net-DW v$version"
+        }
+    },
+    "bin": "mpvnet.exe",
+    "shortcuts": [
+        [
+            "mpvnet.exe",
+            "mpv.net-DW",
+            "mpv.net-dw"
+        ]
+    ],
+    "persist": [
+        "portable_config"
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/diana7127/mpv.net-DW/releases",
+        "regex": "tag/v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/diana7127/mpv.net-DW/releases/download/v$version/mpv.net-DW_v$version_Setup.exe#/dl.7z",
+                "extract_dir": "mpv.net-DW v$version"
+            }
+        }
+    },
+    "post_uninstall": "if ($purge) { Remove-Item \"$dir\\portable_config\" -Recurse -Force -ErrorAction SilentlyContinue }"
+}

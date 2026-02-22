@@ -1,0 +1,28 @@
+{
+    "version": "1.1.0.4632",
+    "description": "PDF补丁丁是一个多功能的 PDF 文档工具箱",
+    "homepage": "https://github.com/wmjordan/PDFPatcher",
+    "license": "AGPL-3.0",
+    "url": "https://github.com/wmjordan/PDFPatcher/releases/download/v1.1/PDFPatcher.1.1.0.4632.7z",
+    "hash": "624d839cc860b6d84696e3bb725ccc88b4c616238f14fa208decb3bd78fae750",
+    "bin": "PDFPatcher.exe",
+    "pre_install": "if(!(Test-Path \"$persist_dir\\AppConfig.json\")) { Add-Content \"$dir\\AppConfig.json\" $null }",
+    "persist": "AppConfig.json",
+    "shortcuts": [
+        [
+            "PDFPatcher.exe",
+            "PDF补丁丁",
+            "pdfpatcher"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/wmjordan/PDFPatcher/releases",
+        "regex": "tag_name\":\\s*\"(?<tag>v[\\d.]+)\".+?PDFPatcher\\.(?<version>[\\d.]+)\\.7z"
+    },
+    "autoupdate": {
+        "url": "https://github.com/wmjordan/PDFPatcher/releases/download/$matchTag/PDFPatcher.$version.7z"
+    },
+    "ext": {
+        "url": "https://www.cnblogs.com/pdfpatcher/archive/2011/02/25/Index.html"
+    }
+}

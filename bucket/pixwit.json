@@ -1,0 +1,33 @@
+{
+    "version": "1.8.2",
+    "description": "PixWit 是一款多功能的图像处理和文字识别工具，具有 AI 对话、LaTeX 公式提取和配音等功能",
+    "homepage": "https://github.com/yun-cun-li/PixWit",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/yun-cun-li/PixWit/releases/download/v1.8.2/PixWit-1.8.2-Portable.7z",
+            "hash": "145a6d1f90ed21a34eb374d63fd917eba81b61b45ff6802292dd927e71cb9e11",
+            "extract_dir": "PixWit-1.8.2"
+        }
+    },
+    "bin": "PixWit.exe",
+    "shortcuts": [
+        [
+            "PixWit.exe",
+            "PixWit",
+            "pixwit"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/yun-cun-li/PixWit/releases",
+        "regex": "tag/v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/yun-cun-li/PixWit/releases/download/v$version/PixWit-$version-Portable.7z",
+                "extract_dir": "PixWit-$version"
+            }
+        }
+    }
+}
