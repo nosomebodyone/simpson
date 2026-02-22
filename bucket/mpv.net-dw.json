@@ -18,9 +18,7 @@
             "mpv.net-dw"
         ]
     ],
-    "persist": [
-        "portable_config"
-    ],
+    "persist": "portable_config",
     "checkver": {
         "url": "https://api.github.com/repos/diana7127/mpv.net-DW/releases",
         "regex": "tag/v([\\d.]+)"

@@ -1,77 +1,76 @@
 {
-    "Basic Manifest": {
+    "Manifest": {
         "prefix": "manifest",
-        "description": "Create a basic Scoop manifest",
+        "description": "Basic Scoop manifest",
         "body": [
             "{",
             "    \"version\": \"$1\",",
             "    \"description\": \"$2\",",
             "    \"homepage\": \"$3\",",
-            "    \"license\": \"${4|MIT,Apache-2.0,GPL-3.0,BSD-3-Clause,Unlicense|}\",",
+            "    \"license\": \"$4\",",
             "    \"url\": \"$5\",",
             "    \"hash\": \"$6\",",
-            "    \"bin\": \"$7\",",
-            "    \"checkver\": \"$8\",",
+            "    \"checkver\": \"$7\",",
             "    \"autoupdate\": {",
-            "        \"url\": \"$9\"",
+            "        \"url\": \"$8\"",
             "    }",
             "}"
         ]
     },
     "GitHub Manifest": {
         "prefix": "github",
-        "description": "Create a GitHub-based Scoop manifest",
+        "description": "GitHub-based manifest",
         "body": [
             "{",
             "    \"version\": \"$1\",",
             "    \"description\": \"$2\",",
-            "    \"homepage\": \"https://github.com/${3:user}/${4:repo}\",",
-            "    \"license\": \"${5|MIT,Apache-2.0,GPL-3.0|}\",",
-            "    \"url\": \"https://github.com/$3/$4/releases/download/v\\$version/${6:${TM_FILENAME_BASE}}.zip\",",
+            "    \"homepage\": \"https://github.com/${3}/${4}\",",
+            "    \"license\": \"$5\",",
+            "    \"url\": \"https://github.com/$3/$4/releases/download/v\\$version/${6}.zip\",",
             "    \"hash\": \"$7\",",
-            "    \"bin\": \"$8\",",
             "    \"checkver\": \"github\",",
             "    \"autoupdate\": {",
-            "        \"url\": \"https://github.com/$3/$4/releases/download/v\\$version/${6:${TM_FILENAME_BASE}}.zip\"",
+            "        \"url\": \"https://github.com/$3/$4/releases/download/v\\$version/${6}.zip\"",
             "    }",
             "}"
         ]
     },
-    "Add Shortcuts": {
+    "Shortcuts": {
         "prefix": "shortcuts",
-        "description": "Add shortcuts array",
         "body": [
             "\"shortcuts\": [",
-            "    [",
-            "        \"$1\",",
-            "        \"$2\",",
-            "        \"-${3:args}\"",
-            "    ]",
+            "    [\"$1\", \"$2\"]",
             "],$0"
         ]
     },
-    "Add Extract": {
+    "Extract": {
         "prefix": "extract",
-        "description": "Add extract configuration",
         "body": [
-            "\"extract_dir\": \"$1\",",
-            "\"extract_to\": \"$2\",$0"
+            "\"extract_dir\": \"$1\",$0"
         ]
     },
-    "Add Pre-Install Hook": {
+    "Persist": {
+        "prefix": "persist",
+        "body": [
+            "\"persist\": [\"$1\"],$0"
+        ]
+    },
+    "Dependencies": {
+        "prefix": "depends",
+        "body": [
+            "\"depends\": [\"$1\"],$0"
+        ]
+    },
+    "Pre Install": {
         "prefix": "preinstall",
-        "description": "Add pre-install script",
         "body": [
             "\"pre_install\": \"$1\",$0"
         ]
     },
-    "Add Dependencies": {
-        "prefix": "depends",
-        "description": "Add dependencies array",
+    "Post Install": {
+        "prefix": "postinstall",
         "body": [
-            "\"depends\": [",
-            "    \"$1\"",
-            "],$0"
+            "\"post_install\": \"$1\",$0"
         ]
     }
 }
