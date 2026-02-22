@@ -1,7 +1,5 @@
 ﻿# simpson
 
-[![Tests](https://github.com/nosomebodyone/simpson/actions/workflows/ci.yml/badge.svg)](https://github.com/nosomebodyone/simpson/actions/workflows/ci.yml)
-[![Excavator](https://github.com/nosomebodyone/simpson/actions/workflows/excavator.yml/badge.svg)](https://github.com/nosomebodyone/simpson/actions/workflows/excavator.yml)
 
 适用于 Scoop 包管理器的应用程序清单仓库。
 
@@ -16,7 +14,7 @@ scoop bucket add simpson https://github.com/nosomebodyone/simpson
 ### 安装软件
 
 ```powershell
-scoop install simpson/<应用名称>
+scoop install simpson/<manifest>
 ```
 
 ### 移除仓库
@@ -31,4 +29,4 @@ scoop bucket rm simpson
 
 ## 许可证
 
-本仓库使用 Unlicense 许可证。详见 LICENSE 文件。
+本仓库使用 Unlicense 许可证。
