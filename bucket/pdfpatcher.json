@@ -21,8 +21,5 @@
     },
     "autoupdate": {
         "url": "https://github.com/wmjordan/PDFPatcher/releases/download/$matchTag/PDFPatcher.$version.7z"
-    },
-    "ext": {
-        "url": "https://www.cnblogs.com/pdfpatcher/archive/2011/02/25/Index.html"
     }
 }

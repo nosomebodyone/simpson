@@ -13,7 +13,8 @@
     "shortcuts": [
         [
             "PandaOCR.Pro.exe",
-            "PandaOCR Pro"
+            "PandaOCR.Pro",
+            "pandaocr.pro"
         ]
     ],
     "persist": [
