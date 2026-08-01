@@ -1,6 +1,6 @@
 {
     "version": "2.1.0",
-    "description": "mpv.net-DW 是 mpv.net 的定制版本，集成了视频滤镜、着色器和便携配置。",
+    "description": "mpv.net_CM的DW版本，定制了播放界面、右键菜单、缩略图、视频滤镜和着色器",
     "homepage": "https://github.com/diana7127/mpv.net-DW",
     "license": "Unknown",
     "architecture": {
