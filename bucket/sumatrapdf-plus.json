@@ -1,0 +1,37 @@
+{
+    "version":  "3.7.30",
+    "description":  "Unofficial fork of SumatraPDF, a document reader (PDF, EPUB, MOBI, and more) with improvements for Chinese ebooks, offline lookup, themes, and smart PDF dark mode.",
+    "homepage":  "https://github.com/dengxibo/sumatrapdf-plus",
+    "license":  "GPL-3.0-only",
+    "architecture":  {
+                         "64bit":  {
+                                       "url":  "https://github.com/dengxibo/sumatrapdf-plus/releases/download/3.7.30/Sumatra.PDF.Plus.MainProgram+dictionary.zip",
+                                       "hash":  "6eebea07dd34c3621ea6c53b2ee0a31cb9d0b66c0b911dd9df684bba3ada367d"
+                                   }
+                     },
+    "shortcuts":  [
+                      [
+                          "SumatraPDF-Plus.exe",
+                          "Sumatra PDF Plus"
+                      ]
+                  ],
+    "pre_install":  [
+                        "if (!(Test-Path \"$persist_dir\\SumatraPDF-settings.txt\")) { Set-Content -Encoding ASCII -Path \"$dir\\SumatraPDF-settings.txt\" -Value \u0027CheckForUpdates = false\u0027 }",
+                        "if (Test-Path \"$dir\\SumatraPDF.override.exe\") { Move-Item \"$dir\\SumatraPDF.override.exe\" \"$dir\\SumatraPDF.exe\" -Force }"
+                    ],
+    "persist":  [
+                    "SumatraPDF-settings.txt",
+                    "sumatrapdfcache"
+                ],
+    "checkver":  "github",
+    "autoupdate":  {
+                       "architecture":  {
+                                            "64bit":  {
+                                                          "url":  "https://github.com/dengxibo/sumatrapdf-plus/releases/download/$version/Sumatra.PDF.Plus.MainProgram+dictionary.zip"
+                                                      }
+                                        }
+                   },
+    "bin":  [
+                "SumatraPDF-Plus.exe"
+            ]
+}
