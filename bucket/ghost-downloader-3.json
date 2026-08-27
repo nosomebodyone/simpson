@@ -13,7 +13,6 @@
             "hash": "ad07a340c130e5c6ec62ede266089c1eb0e0e7686c27d862a7e64776bfd53b11"
         }
     },
-    "extract_dir": "dist\\Ghost-Downloader-3.dist",
     "shortcuts": [
         [
             "Ghost-Downloader-3.exe",
@@ -22,7 +21,7 @@
     ],
     "pre_install": [
         "if (!(Test-Path \"$dir\\Ghost Downloader 配置文件.json\")) {",
-        "    Set-Content -Path \"$dir\\Ghost Downloader 配置文件.json\" -Value '{\"Software\":{\"CheckUpdateAtStartUp\":false}}'",
+        "    Set-Content -Path \"$dir\\Ghost Downloader 配置文件.json\" -Value '{\"Software\":{\"CheckUpdateAtStartUp\":false}}' -Encoding utf8",
         "}",
         "if (!(Test-Path \"$dir\\Ghost Downloader 记录文件\")) {",
         "    New-Item \"$dir\\Ghost Downloader 记录文件\" -ItemType File -Force | Out-Null",
