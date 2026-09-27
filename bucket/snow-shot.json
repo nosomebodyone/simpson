@@ -1,40 +1,41 @@
 {
-    "version": "0.7.8-beta",
-    "description": "SnowShot 是一款功能强大的截图工具，集成了文字识别、翻译和 AI 对话等功能",
-    "homepage": "https://github.com/mg-chao/snow-shot",
-    "license": "Apache-2.0|GPL-3.0-only",
+    "version": "1.1.5-beta",
+    "description": "Snow Shot 截图与屏幕内容处理工具，支持标注、文字识别、翻译和 AI 对话",
+    "homepage": "https://github.com/mg-chao/snow-apps",
+    "license": "GPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/mg-chao/snow-shot/releases/download/v0.7.8-beta/Snow.Shot_0.7.8-beta_windows-x64-portable.zip",
-            "extract_dir": "Snow Shot_0.7.8-beta_windows-x64-portable",
-            "hash": "f3747eb9cd256bb7f35c43c2218a83090af58830fe482d2975cea154f8de80ed"
+            "url": "https://github.com/mg-chao/snow-apps/releases/download/v1.1.5-beta/snow-shot-1.1.5-beta-windows-x64-portable.zip",
+            "hash": "d4690a429abc3c94a9e5bf8bbf15228abc67f5c8ea051c9322f40a638761ef2b"
         }
     },
-    "bin": "snowshot.exe",
+    "bin": [
+        [
+            "bin/snow_shot.exe",
+            "snowshot"
+        ],
+        [
+            "bin/snow_shot.exe",
+            "snow-app"
+        ]
+    ],
     "shortcuts": [
         [
-            "snowshot.exe",
+            "bin/snow_shot.exe",
             "Snow Shot",
             "snowshot"
         ]
     ],
-    "post_install": "Remove-Item \"$dir\\uninstall*\", \"$dir\\`$*\" -Force -Recurse -ErrorAction SilentlyContinue",
     "post_uninstall": "if ($purge) { Remove-Item \"$env:LOCALAPPDATA\\com.chao.snowshot\" -Force -Recurse -ErrorAction SilentlyContinue }",
-    "persist": [
-        "configs",
-        "plugins",
-        "stores",
-        "captureHistoryImages"
-    ],
+    "persist": "bin/portable",
     "checkver": {
-        "url": "https://api.github.com/repos/mg-chao/snow-shot/releases",
-        "regex": "Snow\\.Shot_(?<version>[\\d.]+(?:-[\\w.]+))_windows-x64-portable\\.zip"
+        "url": "https://api.github.com/repos/mg-chao/snow-apps/releases/latest",
+        "regex": "\"tag_name\":\\s*\"v(?<version>[\\d.]+(?:-[\\w.]+)?)\""
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/mg-chao/snow-shot/releases/download/v$version/Snow.Shot_$version_windows-x64-portable.zip",
-                "extract_dir": "Snow Shot_$version_windows-x64-portable"
+                "url": "https://github.com/mg-chao/snow-apps/releases/download/v$version/snow-shot-$version-windows-x64-portable.zip"
             }
         }
     }
